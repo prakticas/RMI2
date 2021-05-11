@@ -1,8 +1,14 @@
 import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 import java.time.LocalDateTime;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-public class ServerA {
+public class ServerA extends UnicastRemoteObject{
+
+    public ServerA() throws RemoteException{
+        super();
+    }
+
     public String dar_hora() throws RemoteException
     {
         LocalDateTime lD = LocalDateTime.now();

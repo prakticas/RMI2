@@ -12,7 +12,7 @@ implements Broker{
 
     //API server TODO
     public void registrar_servidor(String nombre_servidor, String host_remoto_IP_puerto) throws RemoteException{
-
+        
     }
     public void registrar_servicio(String nombre_servidor, String nom_servicio, Vector<String> lista_param,
                             String tipo_retorno) throws RemoteException{
