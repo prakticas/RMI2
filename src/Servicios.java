@@ -35,7 +35,7 @@ public class Servicios {
     }
 
     public Respuesta ejecutar(String servicio){
-        lista_servicios.get(servicio).ejecutar();
+        return lista_servicios.get(servicio).ejecutar();
     }
     
 }
