@@ -1,3 +1,4 @@
+
 import java.rmi.server.UnicastRemoteObject;
 import java.rmi.RemoteException;
 public class ServerB extends UnicastRemoteObject{

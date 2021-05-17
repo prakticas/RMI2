@@ -1,8 +1,9 @@
+
 import java.rmi.Naming;
 public class ClientC {
     public static void main(String[] args){
         //Fijar el directorio donde se encuentra el java.policy
-        System.setProperty("java.security.policy", "../java.policy");
+        System.setProperty("java.security.policy", "../configuration/java.policy");
         if (System.getSecurityManager() == null) {
             //Crear administrador de seguridad
             System.setSecurityManager(new SecurityManager());

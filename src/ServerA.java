@@ -1,8 +1,11 @@
+
 import java.rmi.RemoteException;
+import java.rmi.Naming;
 import java.rmi.server.UnicastRemoteObject;
 import java.time.LocalDateTime;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+
 public class ServerA extends UnicastRemoteObject{
 
     public ServerA() throws RemoteException{
@@ -25,13 +28,24 @@ public class ServerA extends UnicastRemoteObject{
         return dia+"/"+mes+"/"+anyo;
     }
     public static void main(String[] args) {
-        try{
-        ServerA sa = new ServerA();
-        String dia = sa.dar_fecha();
-        System.out.println(dia);
-        String hora = sa.dar_hora();
-        System.out.println(hora);
+        //Fijar el directorio donde se encuentra el java.policy
+        //El segundo argumento es la ruta al java.policy
+        System.setProperty("java.security.policy", "../configuration/java.policy");
+        //Crear administrador de seguridad
+        System.setSecurityManager(new SecurityManager());
+        //nombre o IP del host donde reside el objeto servidor
+        String hostName = "127.0.0.1"; //se puede usar "IPhostremoto:puerto"
+        //Por defecto RMI usa el puerto 1099
+        try {
+            // Crear objeto remoto
+            ServerA obj = new ServerA();
+            System.out.println("Creado!");
+            //Registrar el objeto remoto
+            Naming.rebind("//" + hostName + "/ServerA", obj);
+            System.out.println("Estoy registrado!");
         }
-        catch(Exception e){}
+        catch (Exception ex) {
+            System.out.println(ex);
+        }
     }
 }
