@@ -32,7 +32,7 @@ implements Broker{
           System.out.println(e);
         }
     }
-    public void registrar_servicio(String nombre_servidor, String nom_servicio, Vector lista_param,
+    public void registrar_servicio(String nombre_servidor, String nom_servicio, Vector<String> lista_param,
                             String tipo_retorno) throws RemoteException{
 
     }
