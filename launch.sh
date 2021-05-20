@@ -6,5 +6,9 @@ JAVAC="/usr/local/java/bin/javac"
 JAVA="/usr/local/java/bin/java"
 
 SERVER=155.210.154.202
+if [ $# -ne 1 ];then
+     echo "inidique el progrma a lanzar"
+    exit 85
+fi
 
-ssh -n ${USER}@${SERVER} "cd ${WORKINGDIR};${JAVA} -cp  ${WORKINGDIR}/build ClientC"
+ssh -n ${USER}@${SERVER} "cd ${WORKINGDIR};${JAVA} -cp  ${WORKINGDIR}/build $1"
