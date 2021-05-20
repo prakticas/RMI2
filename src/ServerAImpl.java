@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Vector;
+import java.util.Scanner;
 
 public class ServerAImpl extends UnicastRemoteObject implements ServerA{
 
@@ -37,7 +38,7 @@ public class ServerAImpl extends UnicastRemoteObject implements ServerA{
 
         System.setSecurityManager(new SecurityManager());
          String name = "Aini";
-        String hostName = "155.210.154.203:32001"; //se puede usar "IPhostremoto:puerto"
+        String hostName = "127.0.0.1"; //se puede usar "IPhostremoto:puerto"
         //Por defecto RMI usa el puerto 1099
         try {
             // Crear objeto remoto
@@ -80,7 +81,7 @@ public class ServerAImpl extends UnicastRemoteObject implements ServerA{
                 }
                 numero = "";
             } while( !numero.equals("") );
-
+            teclado.close();
         }
         catch (Exception ex) {
             System.out.println(ex);

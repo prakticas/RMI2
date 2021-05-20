@@ -13,7 +13,7 @@ public class ClientC {
         }
         try {
             
-            String hostname = "155.210.154.204:32001"; //se puede usar "IP:puerto"
+            String hostname = "127.0.0.1"; //se puede usar "IP:puerto"
             Broker broker = (Broker) Naming.lookup("//"+ hostname + "/"+brokerName);
 
             String respuesta = "";
@@ -36,6 +36,7 @@ public class ClientC {
                 }
                 respuesta = "";
             } while( !respuesta.equals(""));
+            teclado.close();
             /*
             Respuesta today = broker.ejecutar_servicio("dar_fecha",null);
             Respuesta thisHour = broker.ejecutar_servicio("dar_hora",null);

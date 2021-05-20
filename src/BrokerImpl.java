@@ -84,7 +84,7 @@ implements Broker{
       System.setProperty("java.security.policy", "../configuration/java.policy");
       System.setSecurityManager(new SecurityManager());
       String name = "Brokerini";
-      String hostName = "155.210.154.202:32001"; //se puede usar "IPhostremoto:puerto"
+      String hostName = "127.0.0.1"; //se puede usar "IPhostremoto:puerto"
       //Por defecto RMI usa el puerto 1099
 
       try {
