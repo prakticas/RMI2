@@ -17,6 +17,8 @@ public class ClientC {
             Respuesta today = broker.ejecutar_servicio("dar_fecha",null);
             Respuesta thisHour = broker.ejecutar_servicio("dar_hora",null);
             System.out.println("Hoy es: " + today + " y la hora actual es: " + thisHour);
+            Respuesta Saldo = broker.ejecutar_servicio("obtener_saldo",null);
+            System.out.println("mi saldo es"+ Saldo);
         } 
         catch (Exception ex) {
             System.out.println(ex);
