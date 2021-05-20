@@ -35,9 +35,10 @@ implements Broker{
         { 
          
             try {
-              ServerA serverA = (ServerA)Naming.lookup("//"+host_remoto_IP_puerto+ "/"+ nombre_servidor);
+              
+              Remote server = Naming.lookup("//"+host_remoto_IP_puerto+ "/"+ nombre_servidor);
 
-              lista_servidores.put(nombre_servidor, serverA);
+              lista_servidores.put(nombre_servidor, server);
              
             } catch (Exception e) {
               System.err.println("No se puedo acceder a server A");
