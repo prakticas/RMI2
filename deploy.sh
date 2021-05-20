@@ -6,6 +6,7 @@ SERVERLOG="serverA.log"
 BROKERLOG="broker.log"
 WORKINGDIR="/home/a785370/broker"
 JAVAC="/usr/local/java/bin/javac"
+JAVA="/usr/local/java/bin/java"
 
 servers=(155.210.154.202 155.210.154.203 155.210.154.204)
 
@@ -15,6 +16,6 @@ scp   -r src ${USER}@central.cps.unizar.es:${WORKINGDIR}
 ssh -n ${USER}@central.cps.unizar.es "find ${WORKINGDIR}/src -iname \"*.java\" > ${WORKINGDIR}/sources.txt ;${JAVAC} @${WORKINGDIR}/sources.txt -d ${WORKINGDIR}/build"
 
 
-ssh -n ${USER}@${servers[0]} "java -cp  ${WORKINGDIR}/build BrokerImpl"
+ssh -n ${USER}@${servers[0]} "cd ${WORKINGDIR};${JAVA} -cp  ${WORKINGDIR}/build BrokerImpl"
 #echo ${USER}@${servers[1]}
 #echo ${USER}@${servers[2]}

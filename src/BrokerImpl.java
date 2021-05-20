@@ -20,7 +20,7 @@ implements Broker{
     {
         super();    //Llama al constructor de UnicastRemoteObject
         
-        System.setProperty("java.security.policy", "../configuration/java.policy");
+        System.setProperty("java.security.policy", "./configuration/java.policy");
       
         System.setSecurityManager(new SecurityManager());
         lista_servidores = new Hashtable<String,Remote>();
@@ -89,7 +89,7 @@ implements Broker{
     public static void main(String[] args) {
 
       //registrarse en rmi
-      System.setProperty("java.security.policy", "../configuration/java.policy");
+      System.setProperty("java.security.policy", "./configuration/java.policy");
       System.setSecurityManager(new SecurityManager());
       String name = "Brokerini";
       String hostName = "127.0.0.1"; //se puede usar "IPhostremoto:puerto"
