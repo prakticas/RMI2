@@ -17,12 +17,12 @@ public class ServerAImpl extends UnicastRemoteObject implements ServerA{
 
     public Respuesta dar_hora(Vector<String> args) throws RemoteException
     {
-        /*LocalDateTime lD = LocalDateTime.now();
+        LocalDateTime lD = LocalDateTime.now();
         int horas  = lD.getHour();
         int minutos = lD.getMinute();
         int segundos = lD.getSecond();
-        return new Respuesta(horas  + ":"+ minutos + ":" + segundos); */
-        return new Respuesta("holi");
+        return new Respuesta(horas  + ":"+ minutos + ":" + segundos); 
+      
         
     }
     public Respuesta dar_fecha(Vector<String> args) throws RemoteException{

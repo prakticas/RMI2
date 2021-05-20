@@ -1,4 +1,6 @@
-public class Respuesta {
+import java.io.Serializable;
+
+public class Respuesta implements Serializable {
 
     String valor;
 
