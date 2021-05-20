@@ -38,11 +38,12 @@ public class Servicios {
 
     //crea un nuevo servicio y lo añade
     public void newServicio(Remote servidor, String nom_servicio){
-
+  
             try {
               
                 Method metodo= servidor.getClass().getMethod(nom_servicio,Vector.class);
                 String key = nom_servicio;
+               
                 if (!lista_servicios.containsKey(key)){
                     Servicio s = new Servicio(nom_servicio,metodo);
                     lista_servicios.put(key, s);

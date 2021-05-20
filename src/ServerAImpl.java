@@ -53,10 +53,10 @@ public class ServerAImpl extends UnicastRemoteObject implements ServerA{
             System.out.println("conexión con broker");
             broker.registrar_servidor(name, hostName);
             System.out.println("Estoy registrado en broker!");
-           /* broker.registrar_servicio(name, "dar_fecha");
+            broker.registrar_servicio(name, "dar_fecha");
             System.out.println("servicio dar fecha registrado");
-            broker.registrar_servicio(name, "dar_hora");
-            System.out.println("servicio dar hora registrado");*/
+           broker.registrar_servicio(name, "dar_hora");
+            System.out.println("servicio dar hora registrado");
 
         }
         catch (Exception ex) {

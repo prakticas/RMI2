@@ -19,25 +19,26 @@ implements Broker{
     public BrokerImpl() throws RemoteException
     {
         super();    //Llama al constructor de UnicastRemoteObject
-        System.out.println("Holi");
+        
         System.setProperty("java.security.policy", "../configuration/java.policy");
-        System.out.println("Holi");
+      
         System.setSecurityManager(new SecurityManager());
         lista_servidores = new Hashtable<String,Remote>();
+        services = new Servicios();
       
     }
 
 
     public void registrar_servidor(String nombre_servidor, String host_remoto_IP_puerto) throws RemoteException{
-      System.out.println("A? "+nombre_servidor);
+    
         if (nombre_servidor.equals("Aini"))
         { 
          
             try {
               ServerA serverA = (ServerA)Naming.lookup("//"+host_remoto_IP_puerto+ "/"+ nombre_servidor);
-              System.out.println("estoy");
+
               lista_servidores.put(nombre_servidor, serverA);
-              System.out.println(nombre_servidor);
+             
             } catch (Exception e) {
               System.err.println("No se puedo acceder a server A");
             }
@@ -60,8 +61,8 @@ implements Broker{
 
     public void registrar_servicio(String nombre_servidor, String nom_servicio) throws RemoteException{
         
-      System.out.println("A? "+nombre_servidor);
-          System.out.println(lista_servidores.get(nombre_servidor));
+    
+          //System.out.println(lista_servidores.get(nombre_servidor));
           services.newServicio(lista_servidores.get(nombre_servidor), nom_servicio);
     }
 
