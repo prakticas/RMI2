@@ -43,7 +43,7 @@ public class ServerAImpl extends UnicastRemoteObject implements ServerA{
             System.out.println("Creado server A");
             //Registrar el objeto remoto
             Naming.rebind("//" + hostName + "/"+ name, obj);
-            System.out.println("Estoy registrado en RMI!");
+            System.out.println("Estoy registrado en RMI como "+name);
 
 
             //registrarse
@@ -53,10 +53,10 @@ public class ServerAImpl extends UnicastRemoteObject implements ServerA{
             System.out.println("conexión con broker");
             broker.registrar_servidor(name, hostName);
             System.out.println("Estoy registrado en broker!");
-            broker.registrar_servicio(name, "dar_fecha");
+           /* broker.registrar_servicio(name, "dar_fecha");
             System.out.println("servicio dar fecha registrado");
             broker.registrar_servicio(name, "dar_hora");
-            System.out.println("servicio dar hora registrado");
+            System.out.println("servicio dar hora registrado");*/
 
         }
         catch (Exception ex) {

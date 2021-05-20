@@ -38,7 +38,7 @@ implements Broker{
               System.out.println("estoy");
               lista_servidores.put(nombre_servidor, serverA);
               System.out.println(nombre_servidor);
-            } catch (MalformedURLException | NotBoundException e) {
+            } catch (Exception e) {
               System.err.println("No se puedo acceder a server A");
             }
 
