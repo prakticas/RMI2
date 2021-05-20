@@ -24,7 +24,7 @@ public class Servicios {
         }
            
 
-        private Respuesta ejecutar(Vector<String> params){
+        private Respuesta ejecutar(Vector<?> params){
 
             try {
                
@@ -76,7 +76,7 @@ public class Servicios {
 
     
 
-    public Respuesta ejecutar(String servicio,Vector<String> params){
+    public Respuesta ejecutar(String servicio,Vector<?> params){
         return lista_servicios.get(servicio).ejecutar(params);
     }
 

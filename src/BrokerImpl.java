@@ -66,12 +66,12 @@ implements Broker{
 
     //API cliente TODO
     
-    public Respuesta ejecutar_servicio(String nom_servicio, Vector<String> parametros_servicio) throws RemoteException{
+    public Respuesta ejecutar_servicio(String nom_servicio, Vector<?> parametros_servicio) throws RemoteException{
       return services.ejecutar(nom_servicio, parametros_servicio);
     }
 
     //TODO
-    public Respuesta ejecutar_servicio_asinc(String nom_servicio, Vector<String> parametros_servicio) throws RemoteException{
+    public Respuesta ejecutar_servicio_asinc(String nom_servicio, Vector<?> parametros_servicio) throws RemoteException{
       return null;
     }
 
