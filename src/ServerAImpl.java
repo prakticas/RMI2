@@ -15,7 +15,7 @@ public class ServerAImpl extends UnicastRemoteObject implements ServerA{
         super();
     }
 
-    public Respuesta dar_hora(Vector<String> args) throws RemoteException
+    public Respuesta dar_hora(Vector args) throws RemoteException
     {
         LocalDateTime lD = LocalDateTime.now();
         int horas  = lD.getHour();
@@ -25,7 +25,7 @@ public class ServerAImpl extends UnicastRemoteObject implements ServerA{
       
         
     }
-    public Respuesta dar_fecha(Vector<String> args) throws RemoteException{
+    public Respuesta dar_fecha(Vector args) throws RemoteException{
         Calendar c = new GregorianCalendar();
         String dia = Integer.toString(c.get(Calendar.DATE));
         String mes = Integer.toString(c.get(Calendar.MONTH)+1); //+1 porque sino cuenta desde 0

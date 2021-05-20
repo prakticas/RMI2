@@ -1,5 +1,6 @@
 
 import java.rmi.Naming;
+import java.util.Vector;
 public class ClientC {
     public static void main(String[] args){
         //Fijar el directorio donde se encuentra el java.policy
@@ -18,7 +19,10 @@ public class ClientC {
             Respuesta thisHour = broker.ejecutar_servicio("dar_hora",null);
             System.out.println("Hoy es: " + today + " y la hora actual es: " + thisHour);
             Respuesta Saldo = broker.ejecutar_servicio("obtener_saldo",null);
-            System.out.println("mi saldo es"+ Saldo);
+            System.out.println("mi saldo es "+ Saldo);
+            broker.ejecutar_servicio("anyadir_saldo",new Vector<Integer>(15));
+            Saldo = broker.ejecutar_servicio("obtener_saldo",null);
+            System.out.println("mi saldo es "+ Saldo);
         } 
         catch (Exception ex) {
             System.out.println(ex);
