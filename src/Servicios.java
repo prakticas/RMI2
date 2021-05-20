@@ -21,14 +21,10 @@ public class Servicios {
                 System.err.println(e);
             System.err.println("no se ha creado el servicio " + nom_servicio );
             }
-           
         }
-           
 
         private Respuesta ejecutar(Vector<?> params){
-
-            try {
-               
+            try {    
               Respuesta r = (Respuesta) this.method.invoke(cls, params);
               return r;
             } catch (Exception e) {
@@ -36,8 +32,6 @@ public class Servicios {
                 System.err.println("El método "+nom_servicio+" no se pudo invocar");
             }
             return null;
-
-            
         }
 
     }
@@ -46,15 +40,12 @@ public class Servicios {
 
     public Servicios(){
         lista_servicios = new Hashtable<String,Servicio>();
-
     }
 
     //crea un nuevo servicio y lo añade
     public void newServicio(Remote servidor, String nom_servicio){
   
-            try {
-              
-             
+            try {     
                 String key = nom_servicio;
                
                 if (!lista_servicios.containsKey(key)){
@@ -65,22 +56,14 @@ public class Servicios {
               
                 System.err.println("No se pudo añadi rel servicio "+ nom_servicio);
             }
-            
 
-            
-           
     }
 
     public void deleteServicio(String nom_servicio){
         lista_servicios.remove(nom_servicio);
     }
 
-    
-
     public Respuesta ejecutar(String servicio,Vector<?> params){
         return lista_servicios.get(servicio).ejecutar(params);
     }
-
-   
-    
 }

@@ -20,7 +20,7 @@ implements Broker{
     {
         super();    //Llama al constructor de UnicastRemoteObject
         
-        System.setProperty("java.security.policy", "./configuration/java.policy");
+        System.setProperty("java.security.policy", "../configuration/java.policy");
       
         System.setSecurityManager(new SecurityManager());
         lista_servidores = new Hashtable<String,Remote>();
@@ -30,9 +30,7 @@ implements Broker{
 
 
     public void registrar_servidor(String nombre_servidor, String host_remoto_IP_puerto) throws RemoteException{
-    
-      
-         
+
             try {
               
               Remote server = Naming.lookup("//"+host_remoto_IP_puerto+ "/"+ nombre_servidor);
@@ -42,20 +40,14 @@ implements Broker{
             } catch (Exception e) {
               System.err.println("No se puedo acceder a server "+nombre_servidor);
             }
-
-        
-
-        
-        
+  
     }
 
     public void registrar_servicio(String nombre_servidor, String nom_servicio) throws RemoteException{
-        
-    
+
           //System.out.println(lista_servidores.get(nombre_servidor));
           services.newServicio(lista_servidores.get(nombre_servidor), nom_servicio);
     }
-
 
 
     public void baja_servicio(String nombre_servidor, String nom_servicio) throws RemoteException{
@@ -64,7 +56,7 @@ implements Broker{
 
     }
 
-    //API cliente TODO
+    //API cliente 
     
     public Respuesta ejecutar_servicio(String nom_servicio, Vector<?> parametros_servicio) throws RemoteException{
       return services.ejecutar(nom_servicio, parametros_servicio);
@@ -89,10 +81,10 @@ implements Broker{
     public static void main(String[] args) {
 
       //registrarse en rmi
-      System.setProperty("java.security.policy", "./configuration/java.policy");
+      System.setProperty("java.security.policy", "../configuration/java.policy");
       System.setSecurityManager(new SecurityManager());
       String name = "Brokerini";
-      String hostName = "127.0.0.1"; //se puede usar "IPhostremoto:puerto"
+      String hostName = "155.210.154.202:32001"; //se puede usar "IPhostremoto:puerto"
       //Por defecto RMI usa el puerto 1099
 
       try {
