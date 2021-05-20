@@ -31,8 +31,7 @@ implements Broker{
 
     public void registrar_servidor(String nombre_servidor, String host_remoto_IP_puerto) throws RemoteException{
     
-        if (nombre_servidor.equals("Aini"))
-        { 
+      
          
             try {
               
@@ -41,22 +40,12 @@ implements Broker{
               lista_servidores.put(nombre_servidor, server);
              
             } catch (Exception e) {
-              System.err.println("No se puedo acceder a server A");
+              System.err.println("No se puedo acceder a server "+nombre_servidor);
             }
 
-        } 
-        else if (nombre_servidor=="B")
-        {
-          try
-          {
-          ServerB serverB =  (ServerB) Naming.lookup("//"+host_remoto_IP_puerto + "/"+ nombre_servidor);
-          lista_servidores.put(nombre_servidor, serverB);
-        } catch (MalformedURLException | NotBoundException e) {
+        
 
-         System.err.println("No se puedo acceder a server B");
-        }
-
-        }
+        
         
     }
 
