@@ -34,7 +34,7 @@ implements Broker{
         { 
          
             try {
-              ServerA serverA = (ServerA) Naming.lookup("//"+"127.0.0.1"+ "/"+ "A");
+              ServerA serverA = (ServerA)Naming.lookup("//"+host_remoto_IP_puerto+ "/"+ nombre_servidor);
               System.out.println("estoy");
               lista_servidores.put(nombre_servidor, serverA);
               System.out.println(nombre_servidor);
@@ -107,10 +107,10 @@ implements Broker{
       try {
           // Crear objeto remoto
           Broker obj = new BrokerImpl();
-          System.out.println("Broker registrado creado!");
+          System.out.println("Broker  creado!");
           //Registrar el objeto remoto
           Naming.rebind("//" + hostName + "/"+name, obj);
-          System.out.println("Broker registrado registrado!");
+          System.out.println("Broker  registrado!");
       }
       catch (Exception ex) {
           System.out.println(ex);
