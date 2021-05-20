@@ -1,11 +1,6 @@
-package client;
-
 import java.rmi.Naming;
 import java.util.Vector;
 import java.util.Scanner;
-
-import broker.Broker;
-import util.Respuesta;
 
 public class ClientC {
     public static void main(String[] args){

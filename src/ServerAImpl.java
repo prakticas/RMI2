@@ -1,5 +1,3 @@
-package serverA;
-
 import java.rmi.RemoteException;
 import java.rmi.Naming;
 import java.rmi.server.UnicastRemoteObject;
@@ -9,12 +7,7 @@ import java.util.GregorianCalendar;
 import java.util.Vector;
 import java.util.Scanner;
 
-import broker.Broker;
-import util.Respuesta;
-
 public class ServerAImpl extends UnicastRemoteObject implements ServerA{
-
-  
 
     public ServerAImpl() throws RemoteException {
         super();

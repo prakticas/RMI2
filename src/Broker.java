@@ -1,10 +1,7 @@
-package broker;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.Vector;
-
-import util.Respuesta;
 
 public interface Broker extends Remote{
     //API server 
