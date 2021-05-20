@@ -13,7 +13,7 @@ public class ServerBImpl extends UnicastRemoteObject implements ServerB{
         saldo= args.get(0);
         return null;
     }
-    public Respuesta obtener_saldo() throws RemoteException{
+    public Respuesta obtener_saldo(Vector args) throws RemoteException{
         return new Respuesta(saldo.toString());
     }
 
@@ -26,7 +26,7 @@ public class ServerBImpl extends UnicastRemoteObject implements ServerB{
         //Por defecto RMI usa el puerto 1099
         try {
             // Crear objeto remoto
-            ServerA obj = new ServerAImpl();
+            ServerB obj = new ServerBImpl();
             System.out.println("Creado server B");
             //Registrar el objeto remoto
             Naming.rebind("//" + hostName + "/"+ name, obj);
@@ -42,8 +42,8 @@ public class ServerBImpl extends UnicastRemoteObject implements ServerB{
             System.out.println("Estoy registrado en broker!");
             broker.registrar_servicio(name, "anyadir_saldo");
             System.out.println("servicio anyadir_saldo registrado");
-           broker.registrar_servicio(name, "obtener_saldo");
-            System.out.println("servicio obtener_saldoregistrado");
+            broker.registrar_servicio(name, "obtener_saldo");
+            System.out.println("servicio obtener_saldo registrado");
 
         }
         catch (Exception ex) {

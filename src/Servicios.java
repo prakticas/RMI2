@@ -15,9 +15,15 @@ public class Servicios {
         Servicio( String nom_servicio,  Remote cls){
             this.nom_servicio = nom_servicio;
             this.cls = cls;
+           
+          /*  for (Method m : cls.getClass().getDeclaredMethods()){
+                System.out.println(m.getName());
+            }*/
+            
             try {
                 this.method = cls.getClass().getMethod(nom_servicio,Vector.class);
             } catch (NoSuchMethodException | SecurityException e) {
+                System.err.println(e);
             System.err.println("no se ha creado el servicio " + nom_servicio );
             }
            
@@ -32,7 +38,7 @@ public class Servicios {
               return r;
             } catch (Exception e) {
                 System.err.println(e.getCause());
-                System.err.println("El método no "+nom_servicio+" se pudo invocar");
+                System.err.println("El método "+nom_servicio+" no se pudo invocar");
             }
             return null;
 

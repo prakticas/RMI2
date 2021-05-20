@@ -7,5 +7,5 @@ public interface ServerB extends Remote{
   
 
     public Respuesta anyadir_saldo(Vector<Integer> args) throws RemoteException;
-    public Respuesta obtener_saldo() throws RemoteException;
+    public Respuesta obtener_saldo(Vector args) throws RemoteException;
 }
