@@ -9,6 +9,8 @@ import java.util.Vector;
 
 public class ServerA extends UnicastRemoteObject{
 
+  
+
     public ServerA() throws RemoteException{
         super();
     }
@@ -32,7 +34,7 @@ public class ServerA extends UnicastRemoteObject{
         System.setProperty("java.security.policy", "../configuration/java.policy");
 
         System.setSecurityManager(new SecurityManager());
-
+         String name = "Aini";
         String hostName = "127.0.0.1"; //se puede usar "IPhostremoto:puerto"
         //Por defecto RMI usa el puerto 1099
         try {
@@ -40,16 +42,21 @@ public class ServerA extends UnicastRemoteObject{
             ServerA obj = new ServerA();
             System.out.println("Creado server A");
             //Registrar el objeto remoto
-            Naming.rebind("//" + hostName + "/ServerA", obj);
-            System.out.println("Estoy registrado!");
+            Naming.rebind("//" + hostName + "/"+ name, obj);
+            System.out.println("Estoy registrado en RMI!");
 
 
             //registrarse
-            String brokerName ="127.0.0.1";
-            Broker broker = (Broker) Naming.lookup("//"+ brokerName + "/Broker");
-            broker.registrar_servidor("A", hostName);
-            broker.registrar_servicio("A", "dar_fecha");
-            broker.registrar_servicio("A", "dar_hora");
+            String brokerHost ="127.0.0.1";
+            String brokerName="Brokerini";
+            Broker broker = (Broker) Naming.lookup("//"+ brokerHost + "/"+brokerName);
+            System.out.println("conexión con broker");
+            broker.registrar_servidor(name, hostName);
+            System.out.println("Estoy registrado en broker!");
+            broker.registrar_servicio(name, "dar_fecha");
+            System.out.println("servicio dar fecha registrado");
+            broker.registrar_servicio(name, "dar_hora");
+            System.out.println("servicio dar hora registrado");
 
         }
         catch (Exception ex) {

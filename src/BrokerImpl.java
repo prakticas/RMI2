@@ -27,12 +27,15 @@ implements Broker{
 
 
     public void registrar_servidor(String nombre_servidor, String host_remoto_IP_puerto) throws RemoteException{
-       
-        if (nombre_servidor=="A")
+      System.out.println("A? "+nombre_servidor);
+        if (nombre_servidor.equals("Aini"))
         { 
+         
             try {
-              ServerA serverA = (ServerA) Naming.lookup("//"+host_remoto_IP_puerto + "/"+ nombre_servidor);
+              ServerA serverA = (ServerA) Naming.lookup("//"+"127.0.0.1"+ "/"+ "A");
+              System.out.println("estoy");
               lista_servidores.put(nombre_servidor, serverA);
+              System.out.println(nombre_servidor);
             } catch (MalformedURLException | NotBoundException e) {
               System.err.println("No se puedo acceder a server A");
             }
@@ -55,8 +58,8 @@ implements Broker{
 
     public void registrar_servicio(String nombre_servidor, String nom_servicio) throws RemoteException{
         
-
-          
+      System.out.println("A? "+nombre_servidor);
+          System.out.println(lista_servidores.get(nombre_servidor));
           services.newServicio(lista_servidores.get(nombre_servidor), nom_servicio);
     }
 
@@ -95,6 +98,7 @@ implements Broker{
       //registrarse en rmi
       System.setProperty("java.security.policy", "../configuration/java.policy");
       System.setSecurityManager(new SecurityManager());
+      String name = "Brokerini";
       String hostName = "127.0.0.1"; //se puede usar "IPhostremoto:puerto"
       //Por defecto RMI usa el puerto 1099
 
@@ -103,8 +107,8 @@ implements Broker{
           Broker obj = new BrokerImpl();
           System.out.println("Broker registrado creado!");
           //Registrar el objeto remoto
-          Naming.rebind("//" + hostName + "/Broker", obj);
-          System.out.println("Btokrt registrado registrado!");
+          Naming.rebind("//" + hostName + "/"+name, obj);
+          System.out.println("Broker registrado registrado!");
       }
       catch (Exception ex) {
           System.out.println(ex);
