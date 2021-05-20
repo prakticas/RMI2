@@ -10,21 +10,33 @@ public class Servicios {
 
         private String nom_servicio;
         private Method method;
+        private Remote cls;
 
-        Servicio( String nom_servicio, Method m){
+        Servicio( String nom_servicio,  Remote cls){
             this.nom_servicio = nom_servicio;
-            this.method = m;
+            this.cls = cls;
+            try {
+                this.method = cls.getClass().getMethod(nom_servicio,Vector.class);
+            } catch (NoSuchMethodException | SecurityException e) {
+            System.err.println("no se ha creado el servicio " + nom_servicio );
+            }
+           
         }
+           
 
         private Respuesta ejecutar(Vector<String> params){
 
             try {
-                this.method.invoke(nom_servicio, params);
-            } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+               
+              Respuesta r = (Respuesta) this.method.invoke(cls, params);
+              return r;
+            } catch (Exception e) {
+                System.err.println(e.getCause());
                 System.err.println("El método no "+nom_servicio+" se pudo invocar");
             }
-
             return null;
+
+            
         }
 
     }
@@ -41,14 +53,14 @@ public class Servicios {
   
             try {
               
-                Method metodo= servidor.getClass().getMethod(nom_servicio,Vector.class);
+             
                 String key = nom_servicio;
                
                 if (!lista_servicios.containsKey(key)){
-                    Servicio s = new Servicio(nom_servicio,metodo);
+                    Servicio s = new Servicio(nom_servicio, servidor);
                     lista_servicios.put(key, s);
                 }
-            } catch (NoSuchMethodException | SecurityException e) {
+            } catch ( SecurityException e) {
               
                 System.err.println("No se pudo añadi rel servicio "+ nom_servicio);
             }

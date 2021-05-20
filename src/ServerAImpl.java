@@ -15,20 +15,22 @@ public class ServerAImpl extends UnicastRemoteObject implements ServerA{
         super();
     }
 
-    public String dar_hora(Vector<String> args) throws RemoteException
+    public Respuesta dar_hora(Vector<String> args) throws RemoteException
     {
-        LocalDateTime lD = LocalDateTime.now();
+        /*LocalDateTime lD = LocalDateTime.now();
         int horas  = lD.getHour();
         int minutos = lD.getMinute();
         int segundos = lD.getSecond();
-        return horas  + ":"+ minutos + ":" + segundos; 
+        return new Respuesta(horas  + ":"+ minutos + ":" + segundos); */
+        return new Respuesta("holi");
+        
     }
-    public String dar_fecha(Vector<String> args) throws RemoteException{
+    public Respuesta dar_fecha(Vector<String> args) throws RemoteException{
         Calendar c = new GregorianCalendar();
         String dia = Integer.toString(c.get(Calendar.DATE));
         String mes = Integer.toString(c.get(Calendar.MONTH)+1); //+1 porque sino cuenta desde 0
         String anyo = Integer.toString(c.get(Calendar.YEAR));
-        return dia+"/"+mes+"/"+anyo;
+        return new Respuesta(dia+"/"+mes+"/"+anyo);
     }
     public static void main(String[] args) {
         System.setProperty("java.security.policy", "../configuration/java.policy");

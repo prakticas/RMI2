@@ -1,11 +1,16 @@
 public class Respuesta {
 
+    String valor;
 
+    public Respuesta(String val) {
+        valor = val;
+
+    }
 
     @Override
     public String toString() {
-        // TODO Auto-generated method stub
-        return super.toString();
+        
+        return valor;
     }
     
 }
