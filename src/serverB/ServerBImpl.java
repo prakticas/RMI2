@@ -1,7 +1,12 @@
+package serverB;
+
 import java.rmi.server.UnicastRemoteObject;
 import java.util.Vector;
 import java.rmi.Naming;
 import java.rmi.RemoteException;
+
+import broker.Broker;
+import util.Respuesta;
 
 public class ServerBImpl extends UnicastRemoteObject implements ServerB{
     private Integer saldo;
@@ -18,7 +23,7 @@ public class ServerBImpl extends UnicastRemoteObject implements ServerB{
     }
 
     public static void main(String[] args) {
-        System.setProperty("java.security.policy", "../configuration/java.policy");
+        System.setProperty("java.security.policy", "../../configuration/java.policy");
 
         System.setSecurityManager(new SecurityManager());
          String name = "Bini";

@@ -1,6 +1,10 @@
+package serverA;
+
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.Vector;
+
+import util.Respuesta;
 
 
 public interface ServerA extends Remote{

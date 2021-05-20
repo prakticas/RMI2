@@ -1,3 +1,4 @@
+package serverA;
 
 import java.rmi.RemoteException;
 import java.rmi.Naming;
@@ -7,6 +8,9 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Vector;
 import java.util.Scanner;
+
+import broker.Broker;
+import util.Respuesta;
 
 public class ServerAImpl extends UnicastRemoteObject implements ServerA{
 
@@ -34,7 +38,7 @@ public class ServerAImpl extends UnicastRemoteObject implements ServerA{
         return new Respuesta(dia+"/"+mes+"/"+anyo);
     }
     public static void main(String[] args) {
-        System.setProperty("java.security.policy", "../configuration/java.policy");
+        System.setProperty("java.security.policy", "../../configuration/java.policy");
 
         System.setSecurityManager(new SecurityManager());
          String name = "Aini";

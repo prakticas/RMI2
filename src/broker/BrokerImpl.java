@@ -1,14 +1,14 @@
-
+package broker;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.Vector;
 import java.util.Hashtable;
-import java.net.MalformedURLException;
 import java.rmi.Naming;
-import java.rmi.NotBoundException;
 import java.rmi.Remote;
- 
+
+import  util.Respuesta;
+
 
 public class BrokerImpl extends UnicastRemoteObject
 implements Broker{
@@ -81,7 +81,7 @@ implements Broker{
     public static void main(String[] args) {
 
       //registrarse en rmi
-      System.setProperty("java.security.policy", "../configuration/java.policy");
+      System.setProperty("java.security.policy", "../../configuration/java.policy");
       System.setSecurityManager(new SecurityManager());
       String name = "Brokerini";
       String hostName = "127.0.0.1"; //se puede usar "IPhostremoto:puerto"
@@ -90,10 +90,10 @@ implements Broker{
       try {
           // Crear objeto remoto
           Broker obj = new BrokerImpl();
-          System.out.println("Broker  creado!");
+          System.out.println("broker.Broker  creado!");
           //Registrar el objeto remoto
           Naming.rebind("//" + hostName + "/"+name, obj);
-          System.out.println("Broker  registrado!");
+          System.out.println("broker.Broker  registrado!");
       }
       catch (Exception ex) {
           System.out.println(ex);
