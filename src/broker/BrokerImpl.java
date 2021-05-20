@@ -20,7 +20,7 @@ implements Broker{
     {
         super();    //Llama al constructor de UnicastRemoteObject
         
-        System.setProperty("java.security.policy", "../configuration/java.policy");
+        System.setProperty("java.security.policy", "./configuration/java.policy");
       
         System.setSecurityManager(new SecurityManager());
         lista_servidores = new Hashtable<String,Remote>();
