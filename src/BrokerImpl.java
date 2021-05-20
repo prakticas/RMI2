@@ -1,5 +1,3 @@
-
-
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.Vector;
@@ -10,8 +8,7 @@ import java.rmi.NotBoundException;
 import java.rmi.Remote;
  
 
-public class BrokerImpl extends UnicastRemoteObject
-implements Broker{
+public class BrokerImpl extends UnicastRemoteObject implements Broker{
 
     private Servicios services;
     private Hashtable<String,Remote> lista_servidores = null; //valdría linked list pero hago un map pensando en dinamico
@@ -20,7 +17,7 @@ implements Broker{
     {
         super();    //Llama al constructor de UnicastRemoteObject
         
-        System.setProperty("java.security.policy", "./configuration/java.policy");
+        System.setProperty("java.security.policy", "../configuration/java.policy");
       
         System.setSecurityManager(new SecurityManager());
         lista_servidores = new Hashtable<String,Remote>();
@@ -89,21 +86,23 @@ implements Broker{
     public static void main(String[] args) {
 
       //registrarse en rmi
-      System.setProperty("java.security.policy", "./configuration/java.policy");
+      System.setProperty("java.security.policy", "../configuration/java.policy");
       System.setSecurityManager(new SecurityManager());
       String name = "Brokerini";
-      String hostName = "127.0.0.1"; //se puede usar "IPhostremoto:puerto"
+      String hostName = "155.210.154.202:32001"; //se puede usar "IPhostremoto:puerto"
       //Por defecto RMI usa el puerto 1099
+    
 
       try {
           // Crear objeto remoto
-          Broker obj = new BrokerImpl();
+          BrokerImpl obj = new BrokerImpl();
           System.out.println("Broker  creado!");
           //Registrar el objeto remoto
           Naming.rebind("//" + hostName + "/"+name, obj);
           System.out.println("Broker  registrado!");
       }
       catch (Exception ex) {
+        
           System.out.println(ex);
       }
   }

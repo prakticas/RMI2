@@ -14,7 +14,9 @@ if [ $# -eq 0 ];then
 fi
 
 if [ $# -eq 2 ];then
+    
      IP=$2
+      echo $IP
     
 fi
 
