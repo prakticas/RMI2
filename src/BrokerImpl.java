@@ -19,7 +19,9 @@ implements Broker{
     public BrokerImpl() throws RemoteException
     {
         super();    //Llama al constructor de UnicastRemoteObject
+        System.out.println("Holi");
         System.setProperty("java.security.policy", "../configuration/java.policy");
+        System.out.println("Holi");
         System.setSecurityManager(new SecurityManager());
         lista_servidores = new Hashtable<String,Remote>();
       
