@@ -13,8 +13,8 @@ public class ClientC {
             String hostname = "127.0.0.1"; //se puede usar "IP:puerto"
             Broker broker = (Broker) Naming.lookup("//"+ hostname + "/Broker");
        
-            Respuesta today = broker.ejecutar_servicio();
-            Respuesta thisHour = broker.ejecutar_servicio();
+            Respuesta today = broker.ejecutar_servicio("dar_fecha",null);
+            Respuesta thisHour = broker.ejecutar_servicio("dar_hora",null);
             System.out.println("Hoy es: " + today + " y la hora actual es: " + thisHour);
         } 
         catch (Exception ex) {
