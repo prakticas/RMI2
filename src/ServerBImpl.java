@@ -10,7 +10,7 @@ public class ServerBImpl extends UnicastRemoteObject implements ServerB{
        saldo = 0;
     }
     public Respuesta anyadir_saldo(Vector<Integer> args)throws RemoteException{
-        saldo= args.get(0);
+        saldo+= args.get(0);
         return null;
     }
     public Respuesta obtener_saldo(Vector args) throws RemoteException{
