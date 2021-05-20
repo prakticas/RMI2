@@ -1,3 +1,6 @@
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.rmi.Remote;
 import java.util.Hashtable;
 import java.util.Vector;
 
@@ -5,37 +8,65 @@ public class Servicios {
 
     private class Servicio {
 
-        private String nombre_servidor, nom_servicio, tipo_retorno;
-        private Vector lista_param;
+        private String nom_servicio;
+        private Method method;
 
-        Servicio(String nombre_servidor, String nom_servicio, Vector lista_param,String tipo_retorno){
-            this.nombre_servidor = nombre_servidor;
+        Servicio( String nom_servicio, Method m){
             this.nom_servicio = nom_servicio;
-            this.lista_param = lista_param;
-            this.tipo_retorno = tipo_retorno;
+            this.method = m;
         }
 
-        private Respuesta ejecutar(){
+        private Respuesta ejecutar(Vector<String> params){
+
+            try {
+                this.method.invoke(nom_servicio, params);
+            } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+                System.err.println("El método no "+nom_servicio+" se pudo invocar");
+            }
 
             return null;
         }
+
     }
 
     private Hashtable<String, Servicio> lista_servicios = null;
-
-    //crea un nuevo servicio y lo añade
-    public void newServicio(String nombre_servidor, String nom_servicio, Vector<String> lista_param,
-                            String tipo_retorno){
-
-    }
 
     public Servicios(){
         lista_servicios = new Hashtable<String,Servicio>();
 
     }
 
-    public Respuesta ejecutar(String servicio){
-        return lista_servicios.get(servicio).ejecutar();
+    //crea un nuevo servicio y lo añade
+    public void newServicio(Remote servidor, String nom_servicio){
+
+            try {
+              
+                Method metodo= servidor.getClass().getMethod(nom_servicio,Vector.class);
+                String key = nom_servicio;
+                if (!lista_servicios.containsKey(key)){
+                    Servicio s = new Servicio(nom_servicio,metodo);
+                    lista_servicios.put(key, s);
+                }
+            } catch (NoSuchMethodException | SecurityException e) {
+              
+                System.err.println("No se pudo añadi rel servicio "+ nom_servicio);
+            }
+            
+
+            
+           
     }
+
+    public void deleteServicio(String nom_servicio){
+        lista_servicios.remove(nom_servicio);
+    }
+
+    
+
+    public Respuesta ejecutar(String servicio,Vector<String> params){
+        return lista_servicios.get(servicio).ejecutar(params);
+    }
+
+   
     
 }
