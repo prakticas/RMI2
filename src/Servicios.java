@@ -15,11 +15,6 @@ public class Servicios {
         Servicio( String nom_servicio,  Remote cls){
             this.nom_servicio = nom_servicio;
             this.cls = cls;
-           
-          /*  for (Method m : cls.getClass().getDeclaredMethods()){
-                System.out.println(m.getName());
-            }*/
-            
             try {
                 this.method = cls.getClass().getMethod(nom_servicio,Vector.class);
             } catch (NoSuchMethodException | SecurityException e) {

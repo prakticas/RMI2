@@ -20,7 +20,9 @@ public class ClientC {
             System.out.println("Hoy es: " + today + " y la hora actual es: " + thisHour);
             Respuesta Saldo = broker.ejecutar_servicio("obtener_saldo",null);
             System.out.println("mi saldo es "+ Saldo);
-            broker.ejecutar_servicio("anyadir_saldo",new Vector<Integer>(15));
+            Vector<Integer> salario = new Vector<Integer>(1);
+            salario.add(15);
+            broker.ejecutar_servicio("anyadir_saldo",salario);
             Saldo = broker.ejecutar_servicio("obtener_saldo",null);
             System.out.println("mi saldo es "+ Saldo);
         } 
