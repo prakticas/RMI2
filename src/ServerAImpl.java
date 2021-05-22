@@ -31,7 +31,7 @@ public class ServerAImpl extends UnicastRemoteObject implements ServerA{
         return new Respuesta(dia+"/"+mes+"/"+anyo);
     }
     public static void main(String[] args) {
-        System.setProperty("java.security.policy", "./configuration/java.policy");
+        System.setProperty("java.security.policy", "../configuration/java.policy");
 
         System.setSecurityManager(new SecurityManager());
          String name = "Aini";

@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class ClientC {
     public static void main(String[] args){
         //Fijar el directorio donde se encuentra el java.policy
-        System.setProperty("java.security.policy", "./configuration/java.policy");
+        System.setProperty("java.security.policy", "../configuration/java.policy");
         String brokerName = "Brokerini";
         if (System.getSecurityManager() == null) {
             //Crear administrador de seguridad
