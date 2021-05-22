@@ -21,6 +21,8 @@ public class ClientC {
             String numero = "";
             
             do{
+                System.out.println("Tenemos los siguientes servicios: ");
+                System.out.println(broker.lista_servicios());
                 System.out.print("¿Qué servicio desea ejecutar?: ");
                 respuesta = teclado.nextLine();
                 if(respuesta.equals("anyadir_saldo")){
@@ -32,7 +34,7 @@ public class ClientC {
                 else{
                     System.out.println("OK, intentando ejecutar: " + respuesta);
                     Respuesta serverResponse = broker.ejecutar_servicio(respuesta,null);
-                    System.out.printl("El servidor nos ha devuelto: " + serverResponse);
+                    System.out.println("El servidor nos ha devuelto: " + serverResponse);
                 }
             } while( !respuesta.equals(""));
             teclado.close();

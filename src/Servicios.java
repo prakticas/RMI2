@@ -2,6 +2,7 @@ import java.lang.reflect.Method;
 import java.rmi.Remote;
 import java.util.Hashtable;
 import java.util.Vector;
+import java.util.*;
 
 public class Servicios {
 
@@ -71,10 +72,13 @@ public class Servicios {
     public String toString() {
         //TODO devolverl 
         //iterar y ponerlos en el valor
-        String valor;
-        //for (Servicio s : lista_servicios){
-
-        //}
-        //return valor;
+        String valor="";
+        Iterator it = lista_servicios.entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry pair = (Map.Entry)it.next();
+            valor += (pair.getKey() + ". " + pair.getValue());
+            it.remove();
+        }
+        return valor;
     }
 }

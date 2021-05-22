@@ -81,7 +81,6 @@ public class ServerAImpl extends UnicastRemoteObject implements ServerA{
                     //respuesta="dar_fecha";
                     System.out.println(respuesta);
                     broker.registrar_servicio(name, respuesta);
-                    System.out.println("holi");
                 }
                 else if(numero.equals("2")){
                     System.out.print("¿Qué servicio desea dar de baja?: ");
