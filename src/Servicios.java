@@ -16,6 +16,7 @@ public class Servicios {
             this.cls = cls;
             try {
                 this.method = cls.getClass().getMethod(nom_servicio,Vector.class);
+                System.out.println("Servicio creado: "+this.method.getName());
             } catch (NoSuchMethodException | SecurityException e) {
                 System.err.println(e);
             System.err.println("no se ha creado el servicio " + nom_servicio );
@@ -64,5 +65,16 @@ public class Servicios {
 
     public Respuesta ejecutar(String servicio, Vector<?> params){
         return lista_servicios.get(servicio).ejecutar(params);
+    }
+
+    @Override
+    public String toString() {
+        //TODO devolverl 
+        //iterar y ponerlos en el valor
+        String valor;
+        //for (Servicio s : lista_servicios){
+
+        //}
+        //return valor;
     }
 }

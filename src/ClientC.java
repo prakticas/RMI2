@@ -30,11 +30,10 @@ public class ClientC {
                     broker.ejecutar_servicio(respuesta,salario);
                 }
                 else{
-                    System.out.print("OK, intentando ejecutar: " + respuesta);
+                    System.out.println("OK, intentando ejecutar: " + respuesta);
                     Respuesta serverResponse = broker.ejecutar_servicio(respuesta,null);
-                    System.out.print("El servidor nos ha devuelto: " + serverResponse);
+                    System.out.printl("El servidor nos ha devuelto: " + serverResponse);
                 }
-                respuesta = "";
             } while( !respuesta.equals(""));
             teclado.close();
             /*

@@ -23,6 +23,15 @@ public class ServerAImpl extends UnicastRemoteObject implements ServerA{
       
         
     }
+
+
+    public Respuesta saludar(Vector args) throws RemoteException
+    {
+       
+        return new Respuesta("Hola"); 
+      
+        
+    }
     public Respuesta dar_fecha(Vector args) throws RemoteException{
         Calendar c = new GregorianCalendar();
         String dia = Integer.toString(c.get(Calendar.DATE));
@@ -69,14 +78,16 @@ public class ServerAImpl extends UnicastRemoteObject implements ServerA{
                 if(numero.equals("1")){
                     System.out.print("¿Qué servicio desea registar?: ");
                     respuesta = teclado.nextLine();
+                    //respuesta="dar_fecha";
+                    System.out.println(respuesta);
                     broker.registrar_servicio(name, respuesta);
+                    System.out.println("holi");
                 }
                 else if(numero.equals("2")){
                     System.out.print("¿Qué servicio desea dar de baja?: ");
                     respuesta = teclado.nextLine();
                     broker.baja_servicio(name, respuesta);
                 }
-                numero = "";
             } while( !numero.equals("") );
             teclado.close();
         }
