@@ -16,7 +16,8 @@ fi
 if [ $# -eq 2 ];then
     
      IP=$2
-      echo $IP
+    
+      
     
 fi
 

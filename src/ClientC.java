@@ -13,7 +13,7 @@ public class ClientC {
         }
         try {
             
-            String hostname = "127.0.0.1"; //se puede usar "IP:puerto"
+            String hostname = "155.210.154.202:32001"; //se puede usar "IP:puerto"
             Broker broker = (Broker) Naming.lookup("//"+ hostname + "/"+brokerName);
 
             String respuesta = "";
@@ -21,15 +21,20 @@ public class ClientC {
             String numero = "";
             
             do{
-                System.out.println("Tenemos los siguientes servicios: ");
-                System.out.println(broker.lista_servicios());
+                //System.out.println("Tenemos los siguientes servicios: ");
+                //System.out.println(broker.lista_servicios());
                 System.out.print("¿Qué servicio desea ejecutar?: ");
                 respuesta = teclado.nextLine();
                 if(respuesta.equals("anyadir_saldo")){
                     System.out.print("Introduzca el saldo a añadir: ");
                     numero = teclado.nextLine();
                     Vector<Integer> salario = new Vector<Integer>(Integer.parseInt(numero));
-                    broker.ejecutar_servicio(respuesta,salario);
+                    try{
+                        broker.ejecutar_servicio(respuesta,salario);
+                    }catch(Exception e){
+                        System.out.println("No existe dicho servicio XD");
+                    }
+            
                 }
                 else{
                     System.out.println("OK, intentando ejecutar: " + respuesta);

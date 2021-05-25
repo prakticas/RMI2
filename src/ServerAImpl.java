@@ -44,7 +44,7 @@ public class ServerAImpl extends UnicastRemoteObject implements ServerA{
 
         System.setSecurityManager(new SecurityManager());
          String name = "Aini";
-        String hostName = "127.0.0.1"; //se puede usar "IPhostremoto:puerto"
+        String hostName = "155.210.154.203:32001"; //se puede usar "IPhostremoto:puerto"
         //Por defecto RMI usa el puerto 1099
         try {
             // Crear objeto remoto
@@ -55,7 +55,7 @@ public class ServerAImpl extends UnicastRemoteObject implements ServerA{
             System.out.println("Estoy registrado en RMI como "+name);
 
             //registrarse
-            String brokerHost ="127.0.0.1";
+            String brokerHost ="155.210.154.202:32001";
             String brokerName="Brokerini";
             Broker broker = (Broker) Naming.lookup("//"+ brokerHost + "/"+brokerName);
             System.out.println("conexión con broker");
