@@ -62,8 +62,8 @@ public class BrokerImpl extends UnicastRemoteObject implements Broker{
     }
 
     
-    public Servicios lista_servicios() throws RemoteException{
-      return services;
+    public Respuesta lista_servicios() throws RemoteException{
+      return new Respuesta(services.toString());
     }
 
     //TODO

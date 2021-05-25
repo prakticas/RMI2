@@ -77,7 +77,7 @@ public class Servicios {
         while (it.hasNext()) {
             Map.Entry pair = (Map.Entry)it.next();
             valor += (pair.getKey() + ". " + pair.getValue());
-            it.remove();
+           
         }
         return valor;
     }

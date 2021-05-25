@@ -21,8 +21,8 @@ public class ClientC {
             String numero = "";
             
             do{
-                //System.out.println("Tenemos los siguientes servicios: ");
-                //System.out.println(broker.lista_servicios());
+                System.out.println("Tenemos los siguientes servicios: ");
+                System.out.println(broker.lista_servicios());
                 System.out.print("¿Qué servicio desea ejecutar?: ");
                 respuesta = teclado.nextLine();
                 if(respuesta.equals("anyadir_saldo")){

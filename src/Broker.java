@@ -12,6 +12,6 @@ public interface Broker extends Remote{
     //API cliente 
     Respuesta ejecutar_servicio(String nom_servicio, Vector<?> parametros_servicio) throws RemoteException;
     Respuesta ejecutar_servicio_asinc(String nom_servicio, Vector<?> parametros_servicio) throws RemoteException;
-    Servicios lista_servicios() throws RemoteException;
+    Respuesta lista_servicios() throws RemoteException;
     Respuesta obtener_respuesta_asinc(String nom_servicio) throws RemoteException;
 }
