@@ -28,6 +28,7 @@ public class ClientC {
                 respuesta = teclado.nextLine();
                 palabras = respuesta.split(" ");
                 Vector<String> vPalabras = new Vector<String>();
+                
                 for(String item : palabras){
                     vPalabras.addElement(item);
                 }

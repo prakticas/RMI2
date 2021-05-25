@@ -1,5 +1,6 @@
 import java.rmi.server.UnicastRemoteObject;
 import java.util.Vector;
+import java.util.Scanner;
 import java.rmi.Naming;
 import java.rmi.RemoteException;
 
