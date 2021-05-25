@@ -14,11 +14,7 @@ if [ $# -eq 0 ];then
 fi
 
 if [ $# -eq 2 ];then
-    
      IP=$2
-    
-      
-    
 fi
 
-ssh -n ${USER}@${IP} "cd ${WORKINGDIR};${JAVA} -cp  ${WORKINGDIR}/build $1"
+ssh ${USER}@${IP} "cd ${WORKINGDIR}/build;${JAVA} -cp  ${WORKINGDIR}/build $1"
