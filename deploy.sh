@@ -18,7 +18,7 @@ scp   -r src ${USER}@central.cps.unizar.es:${WORKINGDIR}
 #eliminar instancias antiguas"
 for s in ${servers[@]}; do
  ssh -n ${USER}@${s} "killall /usr/local/java/bin/java" 2>/dev/null 1>&2 
- ssh -n ${USER}@${s} "cd ${WORKINGDIR}/build; rmiregistry 32001" 2>/dev/null &
+ #ssh -n ${USER}@${s} "cd ${WORKINGDIR}/build; rmiregistry 32101" 2>/dev/null &
 done
 ssh -n ${USER}@central.cps.unizar.es "find ${WORKINGDIR}/src -iname \"*.java\" > ${WORKINGDIR}/sources.txt ;${JAVAC} @${WORKINGDIR}/sources.txt -d ${WORKINGDIR}/build"
 

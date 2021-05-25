@@ -13,7 +13,7 @@ public class ClientC {
         }
         try {
             
-            String hostname = "155.210.154.202:32001"; //se puede usar "IP:puerto"
+            String hostname = "155.210.154.202:32101"; //se puede usar "IP:puerto"
             Broker broker = (Broker) Naming.lookup("//"+ hostname + "/"+brokerName);
 
             String respuesta = "";
@@ -34,7 +34,7 @@ public class ClientC {
                 }
                 vPalabras.removeElementAt(0);
                 try{
-                    broker.ejecutar_servicio(palabras[0],vPalabras);
+                    System.out.println(broker.ejecutar_servicio(palabras[0],vPalabras)+"\n"); 
                 }catch(Exception e){
                     System.out.println("No existe dicho servicio XD");
                 }

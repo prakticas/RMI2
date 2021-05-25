@@ -13,7 +13,7 @@ public class ServerBImpl extends UnicastRemoteObject implements ServerB{
     public Respuesta anyadir_saldo(Vector<String> args)throws RemoteException{
         
         saldo+= Integer.parseInt(args.get(0));
-        return null;
+        return new Respuesta("Saldo anyadido" + saldo);
     }
     public Respuesta obtener_saldo(Vector args) throws RemoteException{
         return new Respuesta(saldo.toString());
@@ -24,7 +24,7 @@ public class ServerBImpl extends UnicastRemoteObject implements ServerB{
 
         System.setSecurityManager(new SecurityManager());
          String name = "Bini";
-        String hostName = "155.210.154.203:32001"; //se puede usar "IPhostremoto:puerto"
+        String hostName = "155.210.154.203:32101"; //se puede usar "IPhostremoto:puerto"
         //Por defecto RMI usa el puerto 1099
         try {
             // Crear objeto remoto
@@ -36,7 +36,7 @@ public class ServerBImpl extends UnicastRemoteObject implements ServerB{
 
 
             //registrarse
-            String brokerHost ="155.210.154.202:32001";
+            String brokerHost ="155.210.154.202:32101";
             String brokerName="Brokerini";
             Broker broker = (Broker) Naming.lookup("//"+ brokerHost + "/"+brokerName);
             System.out.println("Conexión con broker");

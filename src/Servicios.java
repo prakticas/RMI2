@@ -12,16 +12,16 @@ public class Servicios {
         private Method method;
         private Remote cls;
 
-        Servicio( String nom_servicio,  Remote cls){
+        Servicio( String nom_servicio,  Remote cls) throws NoSuchMethodException, SecurityException{
             this.nom_servicio = nom_servicio;
             this.cls = cls;
-            try {
+          
                 this.method = cls.getClass().getMethod(nom_servicio,Vector.class);
                 System.out.println("Servicio creado: "+this.method.getName());
-            } catch (NoSuchMethodException | SecurityException e) {
-                System.err.println(e);
-            System.err.println("no se ha creado el servicio " + nom_servicio );
-            }
+            
+               
+            
+            
         }
 
         private Respuesta ejecutar(Vector<?> params){
@@ -53,9 +53,11 @@ public class Servicios {
                     Servicio s = new Servicio(nom_servicio, servidor);
                     lista_servicios.put(key, s);
                 }
-            } catch ( SecurityException e) {
+            } catch (SecurityException e) {
               
-                System.err.println("No se pudo añadi rel servicio "+ nom_servicio);
+                System.err.println("No se pudo añadir el servicio "+ nom_servicio);
+            } catch (NoSuchMethodException e){
+                System.err.println("No existe el servicio "+ nom_servicio);
             }
 
     }
