@@ -23,7 +23,7 @@ public class ServerBImpl extends UnicastRemoteObject implements ServerB{
 
         System.setSecurityManager(new SecurityManager());
          String name = "Bini";
-        String hostName = "127.0.0.1"; //se puede usar "IPhostremoto:puerto"
+        String hostName = "155.210.154.203:32001"; //se puede usar "IPhostremoto:puerto"
         //Por defecto RMI usa el puerto 1099
         try {
             // Crear objeto remoto
