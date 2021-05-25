@@ -4,7 +4,7 @@
 USER="a785370"
 SERVERLOG="serverA.log"
 BROKERLOG="broker.log"
-WORKINGDIR="/home/a785370/broker"
+WORKINGDIR="/home/${USER}/broker"
 JAVAC="/usr/local/java/bin/javac"
 JAVA="/usr/local/java/bin/java"
 
