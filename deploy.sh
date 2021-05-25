@@ -24,4 +24,4 @@ ssh -n ${USER}@central.cps.unizar.es "find ${WORKINGDIR}/src -iname \"*.java\" >
 
 ssh -n ${USER}@${servers[0]} "cd ${WORKINGDIR}/build;${JAVA} -cp  ${WORKINGDIR}/build BrokerImpl"
 #echo ${USER}@${servers[1]}
-#echo ${USER}@${servers[2]}BrokerImpl
+#echo ${USER}@${servers[2]}broker.BrokerImpl

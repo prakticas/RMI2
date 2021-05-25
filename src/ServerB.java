@@ -3,6 +3,7 @@
 import java.util.Vector;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+
 public interface ServerB extends Remote{
   
 
