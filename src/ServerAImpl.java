@@ -58,15 +58,8 @@ public class ServerAImpl extends UnicastRemoteObject implements ServerA{
             String brokerHost ="155.210.154.202:32001";
             String brokerName="Brokerini";
             Broker broker = (Broker) Naming.lookup("//"+ brokerHost + "/"+brokerName);
-            System.out.println("conexión con broker");
+            System.out.println("Conexión con broker");
             broker.registrar_servidor(name, hostName);
-
-            /*
-            System.out.println("Estoy registrado en broker!");
-            broker.registrar_servicio(name, "dar_fecha");
-            System.out.println("servicio dar fecha registrado");
-            broker.registrar_servicio(name, "dar_hora");
-            System.out.println("servicio dar hora registrado");*/
 
             String respuesta = "";
             Scanner teclado = new Scanner(System.in);

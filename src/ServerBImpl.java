@@ -38,13 +38,30 @@ public class ServerBImpl extends UnicastRemoteObject implements ServerB{
             String brokerHost ="155.210.154.202:32001";
             String brokerName="Brokerini";
             Broker broker = (Broker) Naming.lookup("//"+ brokerHost + "/"+brokerName);
-            System.out.println("conexión con broker");
+            System.out.println("Conexión con broker");
             broker.registrar_servidor(name, hostName);
-            System.out.println("Estoy registrado en broker!");
-            broker.registrar_servicio(name, "anyadir_saldo");
-            System.out.println("servicio anyadir_saldo registrado");
-            broker.registrar_servicio(name, "obtener_saldo");
-            System.out.println("servicio obtener_saldo registrado");
+
+            String respuesta = "";
+            Scanner teclado = new Scanner(System.in);
+            String numero = "";
+            
+            do{
+                System.out.print("Pulse 1 para registrar servicio o 2 para dar de baja: ");
+                numero = teclado.nextLine();
+                if(numero.equals("1")){
+                    System.out.print("¿Qué servicio desea registar?: ");
+                    respuesta = teclado.nextLine();
+                    //respuesta="dar_fecha";
+                    System.out.println(respuesta);
+                    broker.registrar_servicio(name, respuesta);
+                }
+                else if(numero.equals("2")){
+                    System.out.print("¿Qué servicio desea dar de baja?: ");
+                    respuesta = teclado.nextLine();
+                    broker.baja_servicio(name, respuesta);
+                }
+            } while( !numero.equals("") );
+            teclado.close();
 
         }
         catch (Exception ex) {

@@ -76,7 +76,7 @@ public class Servicios {
         Iterator it = lista_servicios.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry pair = (Map.Entry)it.next();
-            valor += (pair.getKey());
+            valor += pair.getKey() + "\n";
            
         }
         return valor;
