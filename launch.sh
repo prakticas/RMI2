@@ -10,6 +10,9 @@ IP=${servers[0]}
 
 if [ $# -eq 0 ];then
      echo "inidique el progrma a lanzar"
+     echo "ClientC"
+      echo "ServerAImpl"
+      echo "ServerBImpl"
     exit 85
 fi
 

@@ -22,7 +22,7 @@ public class ServerBImpl extends UnicastRemoteObject implements ServerB{
     public Respuesta anyadir_saldo(Vector<String> args)throws RemoteException{
         
         saldo+= Integer.parseInt(args.get(0));
-        return new Respuesta("Saldo anyadido" + saldo);
+        return new Respuesta("Saldo anyadido " + saldo);
     }
 
 
