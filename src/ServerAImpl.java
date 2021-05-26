@@ -13,6 +13,12 @@ public class ServerAImpl extends UnicastRemoteObject implements ServerA{
         super();
     }
 
+     /** 
+  * da la hora actual
+  * @param  args Vector con los argumentos que son necesarios, en este caso ninguno
+  * @throws RemoteException Si falla la conexión.
+  * @return Respuesta 
+  */
     public Respuesta dar_hora(Vector args) throws RemoteException
     {
         LocalDateTime lD = LocalDateTime.now();
@@ -25,13 +31,12 @@ public class ServerAImpl extends UnicastRemoteObject implements ServerA{
     }
 
 
-    public Respuesta saludar(Vector args) throws RemoteException
-    {
-       
-        return new Respuesta("Hola"); 
-      
-        
-    }
+      /** 
+  * da la fecha actual
+  * @param  args Vector con los argumentos que son necesarios, en este caso ninguno
+  * @throws RemoteException Si falla la conexión.
+  * @return Respuesta 
+  */
     public Respuesta dar_fecha(Vector args) throws RemoteException{
         Calendar c = new GregorianCalendar();
         String dia = Integer.toString(c.get(Calendar.DATE));

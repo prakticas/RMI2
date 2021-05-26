@@ -23,20 +23,20 @@ public class ClientC {
             
             do{
                 System.out.println("Tenemos los siguientes servicios: ");
-                System.out.println(broker.lista_servicios());
+                System.out.println(broker.lista_servicios());//Mostrar servicios antes de pedir uno
                 System.out.print("¿Qué servicio desea ejecutar?: ");
                 respuesta = teclado.nextLine();
                 palabras = respuesta.split(" ");
-                Vector<String> vPalabras = new Vector<String>();
+                Vector<String> vPalabras = new Vector<String>();//
                 
                 for(String item : palabras){
                     vPalabras.addElement(item);
                 }
                 vPalabras.removeElementAt(0);
                 try{
-                    System.out.println(broker.ejecutar_servicio(palabras[0],vPalabras)+"\n"); 
+                    System.out.println(broker.ejecutar_servicio(palabras[0],vPalabras)+"\n"); // ejecutar el servicio
                 }catch(Exception e){
-                    System.out.println("No existe dicho servicio XD");
+                    System.out.println("No existe dicho servicio XD");//si falla
                 }
             } while( !respuesta.equals(""));
             teclado.close();
